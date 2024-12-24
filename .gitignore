@@ -1,0 +1,48 @@
+# Terraform state files
+*.tfstate
+*.tfstate.backup
+
+# Crash log files
+crash.log
+
+# Ignore override files as they are user-specific
+*.override.tf
+*.override.tf.json
+
+# Include Terraform CLI configuration files
+.terraformrc
+terraform.rc
+
+# Ignore generated .terraform directory
+.terraform/
+
+# Ignore plan output files
+*.tfplan
+*.tfout
+
+# Ignore sensitive files
+*.key
+*.pem
+*.pfx
+
+# Ignore log files
+*.log
+
+# Ignore compressed or archive files
+*.zip
+*.tar.gz
+*.tar.bz2
+*.7z
+
+# Ignore files specific to your IDE/editor
+# IntelliJ IDEA
+.idea/
+# VS Code
+.vscode/
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# OS-specific files
+.DS_Store
+Thumbs.db
