@@ -27,3 +27,8 @@ variable "web_server_name" {
   type        = string
   description = "Name of Web Server"
 }
+
+variable "bastion_host_name" {
+  type        = string
+  description = "Name of Bastion Host"
+}
