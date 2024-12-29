@@ -8,8 +8,8 @@ data "aws_availability_zones" "this" {
 }
 
 data "aws_ami" "webserver" {
-  most_recent      = true
-  owners           = ["self"]
+  most_recent = true
+  owners      = ["self"]
 
   filter {
     name   = "name"

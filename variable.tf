@@ -34,5 +34,5 @@ variable "bastion_host_name" {
 }
 
 variable "sshkey" {
-  type        = string
+  type = string
 }
