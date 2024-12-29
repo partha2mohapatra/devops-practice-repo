@@ -16,6 +16,9 @@ terraform.rc
 # Ignore generated .terraform directory
 .terraform/
 
+# Ignore lock files
+*.lock.hcl
+
 # Ignore plan output files
 *.tfplan
 *.tfout
