@@ -1,0 +1,65 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Provision three tier architecture using terraform
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  provision-three-tier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: setup the packer
+        id: packer
+        run: hashicorp/setup-packer@main
+
+      - name: inilialize packer
+        id: initpacker
+        run: "packer init ./image-builder/"
+
+      - name: format packer
+        id: fmtpacker
+        run: "packer fmt ./image-builder/"
+
+      - name: validate packer
+        id: validate
+        run: "packer validate ./image-builder/"
+
+      - name: build image
+        id: build
+        run: "packer build ./image-builder/"
+
+      - name: setup terraform
+        id: setupterraform
+        run: hashicorp/setup-terraform@v3
+
+      - name: intialize terraform
+        id: initterraform
+        run: terraform init
+
+      - name: format terraform
+        id: fmtterraform
+        run: terraform fmt
+
+      - name: validate terraform
+        id: validateterraform
+        run: terraform validate
+
+      - name: plan terraform
+        id: planterraform
+        run: terraform plan -input=false
+
+      - name: apply terraform
+        id: applyterraform
+        run: terraform apply --auto-approve
