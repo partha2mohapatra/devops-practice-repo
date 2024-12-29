@@ -32,3 +32,7 @@ variable "bastion_host_name" {
   type        = string
   description = "Name of Bastion Host"
 }
+
+variable "sshkey" {
+  type        = string
+}
