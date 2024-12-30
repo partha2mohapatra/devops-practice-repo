@@ -3,7 +3,10 @@ locals {
 }
 
 source "amazon-ebs" "this" {
-  profile       = "devops"
+  assume_role {
+    role_arn     = "arn:aws:iam::597088052920:role/admin_role"
+    session_name = "lwp-session"
+  }
   region        = var.region
   source_ami    = var.image_id
   instance_type = var.instance_type
