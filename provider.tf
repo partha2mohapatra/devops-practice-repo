@@ -8,7 +8,6 @@ terraform {
 }
 
 provider "aws" {
-  profile = "devops"
   assume_role {
     role_arn     = "arn:aws:iam::597088052920:role/admin_role"
     session_name = "lwp-session"
