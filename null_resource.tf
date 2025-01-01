@@ -12,14 +12,14 @@ resource "null_resource" "provisioner" {
     private_key = var.sshkey
   }
 
+  # provisioner "local-exec" {
+  #   command = "sleep 10 ;scp -o StrictHostKeyChecking=no -i ~/myawskp.pem ~/myawskp.pem ec2-user@${aws_instance.bastion.public_ip}:~"
+  # }
+
   provisioner "file" {
     content = var.sshkey
     destination = "/home/ec2-user/mykey"
   }
-
-  # provisioner "local-exec" {
-  #   command = "sleep 10 ;scp -o StrictHostKeyChecking=no -i ~/myawskp.pem ~/myawskp.pem ec2-user@${aws_instance.bastion.public_ip}:~"
-  # }
 
   # provisioner "remote-exec" {
   #   inline = [
