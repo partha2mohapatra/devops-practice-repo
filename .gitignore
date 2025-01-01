@@ -27,6 +27,8 @@ terraform.rc
 *.key
 *.pem
 *.pfx
+keypair
+keypair.pub
 
 # Ignore log files
 *.log
