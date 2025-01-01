@@ -1,7 +1,7 @@
 resource "aws_instance" "webserver" {
   ami           = data.aws_ami.webserver.id
   instance_type = "t2.micro"
-  key_name      = "myawskp"
+  key_name      = var.key_name
   subnet_id     = element([for subnet in aws_subnet.private_subnet : subnet.id], 0)
 
   tags = {

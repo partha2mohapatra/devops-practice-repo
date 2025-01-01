@@ -36,3 +36,9 @@ variable "bastion_host_name" {
 variable "sshkey" {
   type = string
 }
+
+variable "key_name" {
+  type = string
+  description = "key pair name"
+  default = "deployer-key"
+}
