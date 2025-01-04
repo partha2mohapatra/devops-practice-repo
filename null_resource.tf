@@ -19,6 +19,7 @@ resource "null_resource" "provisioner" {
   provisioner "file" {
     content     = var.sshkey
     destination = "/home/ec2-user/mykey"
+    on_failure = continue
   }
 
   # provisioner "remote-exec" {
