@@ -7,11 +7,11 @@ resource "aws_security_group" "webserver_sg" {
   dynamic "ingress" {
     for_each = var.inbound_rule_web
     content {
-      from_port   = ingress.value.port
-      to_port     = ingress.value.port
-      description = ingress.value.description
-      protocol    = ingress.value.protocol
-      cidr_blocks = [aws_vpc.this.cidr_block]
+      from_port       = ingress.value.port
+      to_port         = ingress.value.port
+      description     = ingress.value.description
+      protocol        = ingress.value.protocol
+      security_groups = [aws_security_group.lb_sg.id]
     }
   }
 

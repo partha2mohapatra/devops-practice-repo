@@ -30,8 +30,8 @@ module "asg" {
   launch_template_description = "Application Server Launch template"
   update_default_version      = true
 
-  image_id          = "ami-01816d07b1128cd2d"
-  instance_type     = "t2.micro"
+  image_id          = var.app_server_image_id
+  instance_type     = var.app_server_instance_type
   ebs_optimized     = true
   enable_monitoring = true
   security_groups   = [aws_security_group.appserver_sg.id]

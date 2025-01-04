@@ -81,6 +81,16 @@ variable "inbound_rule_app" {
   ]
 }
 
+variable "app_server_instance_type" {
+  type    = string
+  default = "t3.micro"
+}
+
+variable "app_server_image_id" {
+  type    = string
+  default = "ami-01816d07b1128cd2d"
+}
+
 variable "db_user_name" {
   type        = string
   description = "user name to connect rds"
