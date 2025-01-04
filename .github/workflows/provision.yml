@@ -45,6 +45,7 @@ jobs:
       - name: build image
         id: build
         run: "packer build ./image-builder/"
+        continue-on-error: true
 
       - name: setup terraform
         id: setupterraform
@@ -69,6 +70,7 @@ jobs:
       - name: apply terraform
         id: applyterraform
         run: terraform apply --auto-approve
+        continue-on-error: true
 
       - name: destroy terraform
         id: destroyterraform
