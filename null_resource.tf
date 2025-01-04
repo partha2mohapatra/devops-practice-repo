@@ -17,7 +17,7 @@ resource "null_resource" "provisioner" {
   # }
 
   provisioner "file" {
-    content = var.sshkey
+    content     = var.sshkey
     destination = "/home/ec2-user/mykey"
   }
 
