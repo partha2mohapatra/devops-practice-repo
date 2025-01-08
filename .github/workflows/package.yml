@@ -1,0 +1,39 @@
+# This is a workflow to provision three tier architecture
+
+name: package app war file
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "provision"
+  package:
+    # The type of runner that the job will run on
+    name: package
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    
+    - name: checkout
+      uses: actions/checkout@master
+      with: 
+        repository: 'partha2mohapatra/java-db-Login'
+    
+
+    - name: Setup JDK 8
+      uses: actions/setup-java@v3
+      with:
+        java-version: '8'
+        distribution: 'temurin'
+    
+    - name: Build with Maven
+      run: mvn clean package
+
+          
+
+
+  
